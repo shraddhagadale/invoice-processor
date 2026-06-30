@@ -1,4 +1,4 @@
-# Acme Corp — Automated Invoice Processor
+# Automated Invoice Processor
 
 A multi-agent AI system that automates Acme Corp's end-to-end invoice workflow: ingest → validate → approve → pay.
 
