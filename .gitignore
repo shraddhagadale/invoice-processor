@@ -1,0 +1,18 @@
+# Environment
+.env
+
+# Database (generated on first run)
+data/invoice_processor.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
