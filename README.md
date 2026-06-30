@@ -2,7 +2,7 @@
 
 A multi-agent AI system that automates Acme Corp's end-to-end invoice workflow: ingest → validate → approve → pay.
 
-**Business problem:** Acme Corp loses $2M/year to manual invoice processing — 30% error rate, 5-day delays, and staff bottlenecks. This system replaces that workflow with a LangGraph-orchestrated multi-agent pipeline that processes invoices in seconds.
+**Business problem:** Acme Corp loses $2M/year to manual invoice processing - 30% error rate, 5-day delays, and staff bottlenecks. This system replaces that workflow with a LangGraph-orchestrated multi-agent pipeline that processes invoices in seconds.
 
 ---
 
@@ -40,7 +40,6 @@ cp .env.example .env
 ```
 
 ```
-# Priority: OpenAI → Grok → Claude
 OPENAI_API_KEY=sk-...
 ```
 
