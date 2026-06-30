@@ -53,7 +53,7 @@ def _print_result(state: dict):
 
     print(f"  Invoice:  {invoice.get('invoice_number', 'N/A')}")
     print(f"  Vendor:   {invoice.get('vendor', 'N/A')}")
-    print(f"  Total:    {invoice.get('currency', 'USD')} {invoice.get('total', 0):,.2f}")
+    print(f"  Total:    {invoice.get('currency', 'USD')} {(invoice.get('total') or 0):,.2f}")
     print(f"  Confidence: {invoice.get('confidence', 1.0):.0%}")
     print_separator()
 

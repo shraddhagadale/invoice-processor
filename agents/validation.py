@@ -38,6 +38,12 @@ def validation_node(state: InvoiceState) -> dict:
 
     # 2 & 3. Inventory existence + stock check
     for item in invoice.line_items:
+        if item.quantity <= 0:
+            issues.append(
+                f"'{item.item}': invalid quantity {item.quantity} — must be greater than zero."
+            )
+            continue
+
         record = query_inventory(item.item)
 
         if not record["found"]:
