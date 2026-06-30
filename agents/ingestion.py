@@ -61,8 +61,12 @@ def ingestion_node(state: InvoiceState) -> dict:
             ),
         ]
 
-    invoice: Invoice = structured_llm.invoke(messages)
-    return {"invoice": invoice.model_dump(), "retry_count": retry_count}
+    try:
+        invoice: Invoice = structured_llm.invoke(messages)
+    except Exception as e:
+        raise RuntimeError(f"Ingestion agent failed (attempt {retry_count + 1}): {e}") from e
+
+    return {"invoice": invoice.model_dump(), "retry_count": retry_count + 1}
 
 
 def should_retry(state: InvoiceState) -> str:

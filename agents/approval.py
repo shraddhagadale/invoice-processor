@@ -63,10 +63,13 @@ Make your approval decision."""
     llm = config.get_llm(temperature=0)
     structured_llm = llm.with_structured_output(ApprovalDecision)
 
-    result: ApprovalDecision = structured_llm.invoke([
-        SystemMessage(content=system_prompt),
-        HumanMessage(content=user_message),
-    ])
+    try:
+        result: ApprovalDecision = structured_llm.invoke([
+            SystemMessage(content=system_prompt),
+            HumanMessage(content=user_message),
+        ])
+    except Exception as e:
+        raise RuntimeError(f"Approval agent failed for {invoice.invoice_number}: {e}") from e
 
     return {
         "decision": result.decision,
