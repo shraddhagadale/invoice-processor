@@ -14,5 +14,8 @@ venv/
 dist/
 build/
 
+# Logs (generated at runtime)
+logs/*.log
+
 # OS
 .DS_Store
